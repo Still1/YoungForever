@@ -21,6 +21,10 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
             </dependency>
+            <dependency>
+                <groupId>com.oc.ocframework</groupId>
+                <artifactId>oc-core</artifactId>
+            </dependency>
         </dependencies>
         <build>
             <plugins>

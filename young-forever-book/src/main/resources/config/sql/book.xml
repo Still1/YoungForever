@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statements>
+    <sql name="bookGrid">
+        <![CDATA[
+            select * from t_book
+        ]]>
+    </sql>
+</statements>

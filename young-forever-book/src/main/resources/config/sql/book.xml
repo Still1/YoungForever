@@ -2,7 +2,7 @@
 <statements>
     <sql name="bookGrid">
         <![CDATA[
-            select * from t_book
+            select * from v_book
         ]]>
     </sql>
 </statements>

@@ -1,7 +1,9 @@
 (function () {
+	var searchUrl = "data/book/bookGrid";
+	
 	$(document).ready(function() {
 		$("#bookGrid").datagrid({
-			url : 'data/book/bookGrid?',
+			url : searchUrl,
 			idField : 'id',
 			method : 'get',
 			
@@ -53,5 +55,12 @@
 				handler : function(){alert('remove')}
 			}]
 		});
+		
+	    $('#searchButton').bind('click', function(){
+	    	var condition = ocFramework.commonMethod.getConditionUrl();
+	    	$('#bookGrid').datagrid('load', {
+	    		cond : condition
+	    	});
+	    });
 	});
 })();

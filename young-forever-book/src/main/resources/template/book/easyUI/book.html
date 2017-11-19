@@ -2,12 +2,13 @@
     <form id="bookConditionForm">
         <div style="margin:10px">
             <label for="chinese_name">书名：</label>
-            <input class="easyui-textbox" name="chinese_name" data-options="required:false" data-operation="eq" data-name="chinese_name"/>
+            <input class="easyui-textbox" name="chinese_name" data-options="required:false" data-operation="like" data-name="chinese_name"/>
             
             <label for="chinese_name">作者：</label>
-            <input class="easyui-textbox" name="author_name" data-options="required:false" data-operation="eq" data-name="author_name"/>
+            <input class="easyui-textbox" name="author_name" data-options="required:false" data-operation="like" data-name="author_name"/>
             
             <a id="searchButton" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+            <a id="resetButton" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-clear'">清空</a>
         </div>
     </form>
 </div>

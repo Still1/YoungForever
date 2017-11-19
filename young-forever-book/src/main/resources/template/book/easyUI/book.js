@@ -62,5 +62,9 @@
 	    		cond : condition
 	    	});
 	    });
+	    
+	    $('#resetButton').bind('click', function(){
+	    	$('#bookConditionForm').form('clear');
+	    });
 	});
 })();

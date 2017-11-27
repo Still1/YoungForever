@@ -1,5 +1,5 @@
 (function () {
-	var searchUrl = "data/book/bookGrid";
+	var searchUrl = "data/book/bookDataGrid";
 	
 	$(document).ready(function() {
 		$("#bookGrid").datagrid({
@@ -44,7 +44,11 @@
 			toolbar : [{
 				iconCls : 'icon-add',
 				text : '新增',
-				handler: function(){alert('add')}
+				handler: function() {
+					var bookDialog = $("#bookDialog"); 
+					bookDialog.dialog("open");
+					bookDialog.dialog("setTitle", "新增");
+				}
 			},'-',{
 				iconCls : 'icon-edit',
 				text : '编辑',
@@ -65,6 +69,40 @@
 	    
 	    $('#resetButton').bind('click', function(){
 	    	$('#bookConditionForm').form('clear');
+	    });
+	    
+	    $("#bookDialog").dialog({
+	    	width : 300,
+	    	height : 530,
+	    	
+	    	closed : true,
+	    	modal : true
+	    });
+	    
+	    $('#author_id').combogrid({
+	        idField : 'id',
+	        textField : 'chinese_name',
+	        url : 'data/book/authorComboGrid',
+	        method : 'get',
+	        
+	        width : 173,
+	    	panelWidth : 550,
+	    	panelHeight : 320,
+	        
+			fitColumns : true,
+			pagination : true,
+			rownumbers : true,
+			multiple : true,
+			
+	        columns:[[
+	        	{field : 'name',title : '作者',width : 100},
+	            {field : 'chinese_name',title : '中文名',width : 100},
+	            {field : 'nationality',title : '国籍',width : 50}
+	        ]]
+	    });
+	    
+	    $('#buy_state').combobox({
+	    	width : 173
 	    });
 	});
 })();

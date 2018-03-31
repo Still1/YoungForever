@@ -12,6 +12,7 @@
 			rownumbers : true,
 			
 			frozenColumns : [[
+				{field : 'checkbox', checkbox : true},
 				{field : 'chinese_name', title : '书名', sortable : true},
 				{field : 'name', title : '原书名', sortable : true},
 				{field : 'author_name', title : '作者'},
@@ -72,11 +73,22 @@
 	    });
 	    
 	    $("#bookDialog").dialog({
+	    	buttons : '#bookDialogButton',
+	    	
 	    	width : 300,
-	    	height : 530,
+	    	height : 560,
 	    	
 	    	closed : true,
 	    	modal : true
+	    });
+	    
+	    $('#bookDialogButtonClose').bind('click', function(){
+	    	$('#bookDialog').dialog('close');
+	    });
+	    
+	    $('#bookDialogButtonSave').bind('click', function(){
+	    	ocFramework.commonMethod.showMessage("操作提示", "保存成功", "fade");
+	    	$('#bookDialog').dialog('close');
 	    });
 	    
 	    $('#author_id').combogrid({

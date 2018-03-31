@@ -1,8 +1,8 @@
 (function () {
-	var searchUrl = "data/book/bookDataGrid";
+	var searchUrl = 'data/book/bookDataGrid';
 	
 	$(document).ready(function() {
-		$("#bookGrid").datagrid({
+		$('#bookGrid').datagrid({
 			url : searchUrl,
 			idField : 'id',
 			method : 'get',
@@ -18,9 +18,9 @@
 				{field : 'author_name', title : '作者'},
 				{field : 'buy_state', title : '购买状态', formatter : function(value) {
 					if(value) {
-						return "已购买";
+						return '已购买';
 					} else {
-						return "未购买";
+						return '未购买';
 					}
 				}},
 				{field : 'douban_value', title : '豆瓣评分', sortable : true},
@@ -35,9 +35,9 @@
 				{field : 'price', title : '定价'},
 				{field : 'book_binding', title : '装帧', formatter : function(value) {
 					if(value == 1) {
-						return "平装";
+						return '平装';
 					} else if(value == 2) {
-						return "精装";
+						return '精装';
 					}
 				}},
 				{field : 'isbn', title : 'ISBN'}
@@ -46,9 +46,9 @@
 				iconCls : 'icon-add',
 				text : '新增',
 				handler: function() {
-					var bookDialog = $("#bookDialog"); 
-					bookDialog.dialog("open");
-					bookDialog.dialog("setTitle", "新增");
+					var bookDialog = $('#bookDialog'); 
+					bookDialog.dialog('open');
+					bookDialog.dialog('setTitle', '新增');
 				}
 			},'-',{
 				iconCls : 'icon-edit',
@@ -62,7 +62,7 @@
 		});
 		
 	    $('#searchButton').bind('click', function(){
-	    	var condition = ocFramework.commonMethod.getConditionUrl();
+	    	var condition = ocFramework.commonMethod.getConditionUrl('#bookConditionForm');
 	    	$('#bookGrid').datagrid('load', {
 	    		cond : condition
 	    	});
@@ -72,7 +72,7 @@
 	    	$('#bookConditionForm').form('clear');
 	    });
 	    
-	    $("#bookDialog").dialog({
+	    $('#bookDialog').dialog({
 	    	buttons : '#bookDialogButton',
 	    	
 	    	width : 300,
@@ -87,7 +87,23 @@
 	    });
 	    
 	    $('#bookDialogButtonSave').bind('click', function(){
-	    	ocFramework.commonMethod.showMessage("操作提示", "保存成功", "fade");
+//	    	$('#bookForm').form('submit', {
+//	    		url : 'data',
+//	    		onSubmit : function(param) {
+//	    			param[ocFramework.csrfObject.parameterName] = ocFramework.csrfObject.token;
+//	    		}
+//	    	});
+	    	debugger;
+	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
+	    	var csrfHeader = new Object();
+	    	csrfHeader[ocFramework.csrfObject.headerName] = ocFramework.csrfObject.token;
+	    	$.ajax({
+	    		method : 'POST',
+	    		url : 'data',
+	    		headers : csrfHeader,
+	    		data : {dataJson : bookFormDataJson}
+	    	});
+	    	ocFramework.commonMethod.showMessage('操作提示', '保存成功', 'fade');
 	    	$('#bookDialog').dialog('close');
 	    });
 	    

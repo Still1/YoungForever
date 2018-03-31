@@ -116,3 +116,6 @@ public class Person {
     }
 }
 ```
+
+## JavaScript字符串
+* 统一使用单引号

@@ -101,7 +101,12 @@
 	    		method : 'POST',
 	    		url : 'data',
 	    		headers : csrfHeader,
-	    		data : {dataJson : bookFormDataJson}
+	    		traditional : true,
+	    		data : {
+	    			dataJson : bookFormDataJson,
+	    			className : 'com.ssss',
+	    			foreignKey : ['a', 'b']
+	    		}
 	    	});
 	    	ocFramework.commonMethod.showMessage('操作提示', '保存成功', 'fade');
 	    	$('#bookDialog').dialog('close');

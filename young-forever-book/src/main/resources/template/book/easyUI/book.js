@@ -30,7 +30,7 @@
 				{field : 'subtitle', title : '副标题'},
 				{field : 'translator', title : '译者'},
 				{field : 'publisher', title : '出版社'},
-				{field : 'publication_date', title : '出版时间'},
+				{field : 'publication_year', title : '出版年'},
 				{field : 'page', title : '页数'},
 				{field : 'price', title : '定价'},
 				{field : 'book_binding', title : '装帧', formatter : function(value) {

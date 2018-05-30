@@ -1,6 +1,5 @@
 package com.oc.youngforever.book.domain;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -16,9 +15,9 @@ public class Book {
     private String isbn;
     private Float price;
     private String publisher;
-    private LocalDate publicationDate;
+    private Short publicationYear;
     private Byte bookBinding;
-    private Byte page;
+    private Short page;
     private Float doubanValue;
     private Integer doubanCount;
     private Byte buyState;
@@ -68,22 +67,22 @@ public class Book {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-    public LocalDate getPublicationDate() {
-        return publicationDate;
-    }
-    public void setPublicationDate(LocalDate publicationDate) {
-        this.publicationDate = publicationDate;
-    }
-    public Byte getBookBinding() {
+    public Short getPublicationYear() {
+		return publicationYear;
+	}
+	public void setPublicationYear(Short publicationYear) {
+		this.publicationYear = publicationYear;
+	}
+	public Byte getBookBinding() {
         return bookBinding;
     }
     public void setBookBinding(Byte bookBinding) {
         this.bookBinding = bookBinding;
     }
-    public Byte getPage() {
+    public Short getPage() {
         return page;
     }
-    public void setPage(Byte page) {
+    public void setPage(Short page) {
         this.page = page;
     }
     public Float getDoubanValue() {

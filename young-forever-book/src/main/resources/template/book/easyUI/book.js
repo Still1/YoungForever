@@ -95,20 +95,7 @@
 //	    	});
 	    	debugger;
 	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
-	    	var csrfHeader = new Object();
-	    	csrfHeader[ocFramework.csrfObject.headerName] = ocFramework.csrfObject.token;
-	    	$.ajax({
-	    		method : 'POST',
-	    		url : 'data',
-	    		headers : csrfHeader,
-	    		traditional : true,
-	    		data : {
-	    			dataJson : bookFormDataJson,
-	    			className : 'com.ssss',
-	    			foreignKey : ['a', 'b']
-	    		}
-	    	});
-	    	ocFramework.commonMethod.showMessage('操作提示', '保存成功', 'fade');
+	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.sss', ['a', 'b']);
 	    	$('#bookDialog').dialog('close');
 	    });
 	    

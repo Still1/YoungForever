@@ -93,9 +93,8 @@
 //	    			param[ocFramework.csrfObject.parameterName] = ocFramework.csrfObject.token;
 //	    		}
 //	    	});
-	    	debugger;
 	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
-	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.sss', ['a', 'b']);
+	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book', ['a', 'b']);
 	    	$('#bookDialog').dialog('close');
 	    });
 	    

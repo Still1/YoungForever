@@ -3,11 +3,12 @@ package com.oc.youngforever.book.domain;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
-@Table(name = "t_book")
 public class Book {
+	@Id
     private Integer id;
     private String chineseName;
     private String name;
@@ -23,6 +24,7 @@ public class Book {
     private Byte buyState;
     private String translator;
     
+    @ManyToMany
     private Set<Author> authors;
     
     public Integer getId() {

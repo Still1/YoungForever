@@ -1,6 +1,6 @@
 package com.oc.youngforever.book.domain;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +28,7 @@ public class Book {
     private String translator;
     
     @ManyToMany
-    private Set<Author> authors;
+    private List<Author> authors;
     
     public Integer getId() {
         return id;
@@ -114,10 +114,10 @@ public class Book {
     public void setTranslator(String translator) {
         this.translator = translator;
     }
-    public Set<Author> getAuthors() {
-        return authors;
-    }
-    public void setAuthors(Set<Author> authors) {
-        this.authors = authors;
-    }
+	public List<Author> getAuthors() {
+		return authors;
+	}
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
 }

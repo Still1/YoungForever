@@ -94,11 +94,16 @@
 //	    		}
 //	    	});
 	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
+	    	//XXX foreignKey对象
+	    	var foreignKey = {
+	    		name : "authors"
+	    		
+	    	};
 	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book', ['a', 'b']);
 	    	$('#bookDialog').dialog('close');
 	    });
 	    
-	    $('#author_id').combogrid({
+	    $('#authors').combogrid({
 	        idField : 'id',
 	        textField : 'chinese_name',
 	        url : 'data/book/authorComboGrid',

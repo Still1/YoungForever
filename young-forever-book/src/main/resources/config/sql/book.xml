@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statements>
+    <sql name="bookDataGrid">
+        <![CDATA[
+            select * from v_book
+        ]]>
+    </sql>
+    <sql name="authorComboGrid">
+        <![CDATA[
+            select * from t_author
+        ]]>
+    </sql>
+</statements>

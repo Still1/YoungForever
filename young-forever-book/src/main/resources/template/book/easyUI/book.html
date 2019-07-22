@@ -1,0 +1,87 @@
+<div id="conditionDiv">
+    <form id="bookConditionForm" class="oc-form">
+        <div>
+            <label for="chinese_name">书名：</label>
+            <input class="easyui-textbox" name="chinese_name" data-options="required:false" data-operation="like"/>
+            
+            <label for="author_name">作者：</label>
+            <input class="easyui-textbox" name="author_name" data-options="required:false" data-operation="like"/>
+            
+            <a id="searchButton" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+            <a id="resetButton" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-clear'">清空</a>
+        </div>
+    </form>
+</div>
+<div id="bookDialog">
+    <form id="bookForm" class="oc-form oc-data-form">
+        
+        <div>
+            <label for="chinese_name">书名：</label>
+            <input class="easyui-textbox" name="chinese_name" data-options="required:true"/>
+        </div>
+        <div>
+            <label for="name">原书名：</label>
+            <input class="easyui-textbox" name="name" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="authors">作者：</label>
+            <input id="authors" name="authors"/>
+        </div>
+        <div>
+            <label for="buy_state">购买状态：</label>
+            <select id="buy_state" class="easyui-combobox" name="buy_state">
+                <option value="0">未购买</option>
+                <option value="1">已购买</option>
+            </select>
+        </div>
+        <div>
+            <label for="douban_value">豆瓣评分：</label>
+            <input class="easyui-numberbox" name="douban_value" data-options="required:false,min:2,max:10,precision:1"/>
+        </div>
+        <div>
+            <label for="douban_count">评价人数：</label>
+            <input class="easyui-numberbox" name="douban_count" data-options="required:false,min:0"/>
+        </div>
+        <div>
+            <label for="subtitle">副标题：</label>
+            <input class="easyui-textbox" name="subtitle" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="translator">译者：</label>
+            <input class="easyui-textbox" name="translator" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="publisher">出版社：</label>
+            <input class="easyui-textbox" name="publisher" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="publication_year">出版时间：</label>
+            <input class="easyui-textbox" name="publication_year" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="page">页数：</label>
+            <input class="easyui-textbox" name="page" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="price">定价：</label>
+            <input class="easyui-textbox" name="price" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="book_binding">装帧：</label>
+            <input class="easyui-textbox" name="book_binding" data-options="required:false"/>
+        </div>
+        <div>
+            <label for="isbn">ISBN：</label>
+            <input class="easyui-textbox" name="isbn" data-options="required:false"/>
+        </div>
+        <div>
+            <input type="hidden" name="id">
+        </div>
+    </form>
+</div>
+<div id="bookDialogButton">
+    <a id="bookDialogButtonSave" href="#" class="easyui-linkbutton">保存</a>
+    <a id="bookDialogButtonClose" href="#" class="easyui-linkbutton">关闭</a>
+</div>
+<table id="bookGrid" class="easyui-datagrid" style="height:50%"></table>
+<script type="text/javascript" src="book.js" data-th-src="@{/resource/template/book/easyUI/book.js}"></script>

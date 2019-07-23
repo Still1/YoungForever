@@ -7,6 +7,7 @@
 			idField : 'id',
 			method : 'get',
 			
+			singleSelect : true,
 			fitColumns : true,
 			pagination : true,
 			rownumbers : true,
@@ -46,6 +47,7 @@
 				iconCls : 'icon-add',
 				text : '新增',
 				handler: function() {
+					$('#bookForm').form('reset');
 					var bookDialog = $('#bookDialog'); 
 					bookDialog.dialog('open');
 					bookDialog.dialog('setTitle', '新增');
@@ -53,7 +55,19 @@
 			},'-',{
 				iconCls : 'icon-edit',
 				text : '编辑',
-				handler : function(){alert('edit')}
+				handler : function(){
+					var bookForm = $('#bookForm');
+					bookForm.form('reset');
+					var selectedRowData = $('#bookGrid').datagrid('getSelected');
+					if(selectedRowData != null) {
+						bookForm.form('load', selectedRowData);
+						var bookDialog = $('#bookDialog');
+						bookDialog.dialog('open');
+						bookDialog.dialog('setTitle', '修改');
+					} else {
+						// TODO 弹出提示框，提醒先选中要修改的行
+					}
+				}
 			},'-',{
 				iconCls : 'icon-remove',
 				text : '删除',
@@ -87,20 +101,10 @@
 	    });
 	    
 	    $('#bookDialogButtonSave').bind('click', function(){
-//	    	$('#bookForm').form('submit', {
-//	    		url : 'data',
-//	    		onSubmit : function(param) {
-//	    			param[ocFramework.csrfObject.parameterName] = ocFramework.csrfObject.token;
-//	    		}
-//	    	});
 	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
-	    	//XXX foreignKey对象
-	    	var foreignKey = {
-	    		name : "authors"
-	    		
-	    	};
-	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book', ['a', 'b']);
+	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book');
 	    	$('#bookDialog').dialog('close');
+	    	$('#bookGrid').datagrid('reload');
 	    });
 	    
 	    $('#authors').combogrid({

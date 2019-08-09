@@ -7,6 +7,7 @@
 			idField : 'id',
 			method : 'get',
 			
+			singleSelect : true,
 			fitColumns : true,
 			pagination : true,
 			rownumbers : true,
@@ -46,6 +47,8 @@
 				iconCls : 'icon-add',
 				text : '新增',
 				handler: function() {
+					//FIXME reset让多选框值数组最后加了一个空值
+					$('#bookForm').form('reset');
 					var bookDialog = $('#bookDialog'); 
 					bookDialog.dialog('open');
 					bookDialog.dialog('setTitle', '新增');
@@ -53,11 +56,36 @@
 			},'-',{
 				iconCls : 'icon-edit',
 				text : '编辑',
-				handler : function(){alert('edit')}
+				handler : function() {
+					var bookForm = $('#bookForm');
+					//FIXME reset让多选框值数组最后加了一个空值
+					bookForm.form('reset');
+					var selectedRowData = $('#bookGrid').datagrid('getSelected');
+					if(selectedRowData != null) {
+						//TODO 作者id信息没有，没有读取到form的多选框中
+						bookForm.form('load', selectedRowData);
+						var bookDialog = $('#bookDialog');
+						bookDialog.dialog('open');
+						bookDialog.dialog('setTitle', '修改');
+					} else {
+						// TODO 弹出提示框，提醒先选中要修改的行
+					}
+				}
 			},'-',{
 				iconCls : 'icon-remove',
 				text : '删除',
-				handler : function(){alert('remove')}
+				handler : function() {
+					// TODO 弹出确认选择框
+					var selectedRowData = $('#bookGrid').datagrid('getSelected');
+					var idArray = [selectedRowData.id];
+					var idArrayJson = JSON.stringify(idArray);
+					if(selectedRowData != null) {
+						//TODO 回调处理
+						ocFramework.commonMethod.deleteData(idArrayJson, 'com.oc.youngforever.book.domain.Book');
+					} else {
+						// TODO 弹出提示框，提醒先选中要修改的行
+					}
+				}
 			}]
 		});
 		
@@ -87,20 +115,11 @@
 	    });
 	    
 	    $('#bookDialogButtonSave').bind('click', function(){
-//	    	$('#bookForm').form('submit', {
-//	    		url : 'data',
-//	    		onSubmit : function(param) {
-//	    			param[ocFramework.csrfObject.parameterName] = ocFramework.csrfObject.token;
-//	    		}
-//	    	});
 	    	var bookFormDataJson = ocFramework.commonMethod.getFormDataJson('#bookForm');
-	    	//XXX foreignKey对象
-	    	var foreignKey = {
-	    		name : "authors"
-	    		
-	    	};
-	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book', ['a', 'b']);
+	    	ocFramework.commonMethod.saveData(bookFormDataJson, 'com.oc.youngforever.book.domain.Book');
+	    	//FIXME 回调处理
 	    	$('#bookDialog').dialog('close');
+	    	$('#bookGrid').datagrid('reload');
 	    });
 	    
 	    $('#authors').combogrid({
@@ -117,6 +136,7 @@
 			pagination : true,
 			rownumbers : true,
 			multiple : true,
+			editable : false,
 			
 	        columns:[[
 	        	{field : 'name',title : '作者',width : 100},

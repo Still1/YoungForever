@@ -55,7 +55,7 @@
 			},'-',{
 				iconCls : 'icon-edit',
 				text : '编辑',
-				handler : function(){
+				handler : function() {
 					var bookForm = $('#bookForm');
 					bookForm.form('reset');
 					var selectedRowData = $('#bookGrid').datagrid('getSelected');
@@ -71,7 +71,16 @@
 			},'-',{
 				iconCls : 'icon-remove',
 				text : '删除',
-				handler : function(){alert('remove')}
+				handler : function() {
+					var selectedRowData = $('#bookGrid').datagrid('getSelected');
+					var idArray = [selectedRowData.id];
+					var idArrayJson = JSON.stringify(idArray);
+					if(selectedRowData != null) {
+						ocFramework.commonMethod.deleteData(idArrayJson, 'com.oc.youngforever.book.domain.Book');
+					} else {
+						// TODO 弹出提示框，提醒先选中要修改的行
+					}
+				}
 			}]
 		});
 		

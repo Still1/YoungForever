@@ -30,6 +30,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="module" module-name="young-forever-user" />
+    <orderEntry type="module" module-name="young-forever-book" />
     <orderEntry type="module" module-name="oc-core" />
     <orderEntry type="module" module-name="oc-data" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.22" level="project" />
@@ -73,7 +75,5 @@
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:4.2.3.RELEASE" level="project" />
-    <orderEntry type="module" module-name="young-forever-user" />
-    <orderEntry type="module" module-name="young-forever-book" />
   </component>
 </module>

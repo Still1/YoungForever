@@ -33,6 +33,11 @@
                 <version>${ocframework.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.oc.ocframework</groupId>
+                <artifactId>oc-data</artifactId>
+                <version>${ocframework.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.oc.youngforever</groupId>
                 <artifactId>young-forever-user</artifactId>
                 <version>${project.version}</version>

@@ -25,6 +25,10 @@
                 <groupId>com.oc.ocframework</groupId>
                 <artifactId>oc-core</artifactId>
             </dependency>
+            <dependency>
+                <groupId>com.oc.ocframework</groupId>
+                <artifactId>oc-data</artifactId>
+            </dependency>
         </dependencies>
         <build>
             <plugins>

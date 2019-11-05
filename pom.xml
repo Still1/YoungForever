@@ -7,10 +7,10 @@
     <groupId>com.oc.youngforever</groupId>
     <artifactId>young-forever-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     
     <properties>
-        <ocframework.version>0.1-SNAPSHOT</ocframework.version>
+        <ocframework.version>0.0.1-SNAPSHOT</ocframework.version>
     </properties>
     
     <modules>
@@ -77,4 +77,16 @@
             </plugins>
         </pluginManagement>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>nexus-maven-releases</id>
+            <name>maven-releases</name>
+            <url>http://192.168.88.8:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-maven-snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://192.168.88.8:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
